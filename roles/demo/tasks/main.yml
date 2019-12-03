@@ -1,0 +1,5 @@
+---
+- file:
+    path: /tmp/ansibleci.txt
+    content: Ansible CI Demo
+    mode: 0644
