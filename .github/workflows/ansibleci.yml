@@ -20,3 +20,6 @@ jobs:
 
     - name: Run image
       run: docker run -it -d --name ansible_lint -v $GITHUB_WORKSPACE:/input -v $HOME:/output docker.pkg.github.com/ansibleci/docker-img-ansible/ansibleci:0.0.2 ansible-playbook ansible-lint.yml
+
+    - name: print results
+      run: ls -lr $HOME
