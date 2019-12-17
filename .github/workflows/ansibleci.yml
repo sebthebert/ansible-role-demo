@@ -26,7 +26,7 @@ jobs:
       run: docker pull "docker.pkg.github.com/ansibleci/docker-img-ansible/ansibleci:0.0.2"
 
     - name: Run image
-      run: docker run --rm -tv -v $GITHUB_WORKSPACE/input:/input -v $GITHUB_WORKSPACE/output:/output docker.pkg.github.com/ansibleci/docker-img-ansible/ansibleci:0.0.2 ansible-playbook ansible-lint.yml
+      run: docker run --rm -t --name ansible_lint -v $GITHUB_WORKSPACE/input:/input -v $GITHUB_WORKSPACE/output:/output docker.pkg.github.com/ansibleci/docker-img-ansible/ansibleci:0.0.2 ansible-playbook ansible-lint.yml
       
     - name: print results
       run: ls -lR $GITHUB_WORKSPACE
