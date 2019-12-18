@@ -32,4 +32,11 @@ jobs:
       run: ls -lR $GITHUB_WORKSPACE
 
     - name: git commit and push to 'AnsibleCI/MyAnsibleCI'
-      run: cd $GITHUB_WORKSPACE/output && git commit -a -m "AnsibleCI for commit '${{github.sha}}' on '${{github.repository}}'"  && git push
+      run: |
+        cd $GITHUB_WORKSPACE/output
+        git config --local user.email "ansibleci@github.com"
+        git config --local user.name "AnsibleCI Github Action"
+        git commit -a -m "AnsibleCI update for commit '${{github.sha}}' on '${{github.repository}}'"
+        git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/AnsibleCI/MyAnsibleCI.git
+      env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}  
