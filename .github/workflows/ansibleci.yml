@@ -32,4 +32,4 @@ jobs:
       run: ls -lR $GITHUB_WORKSPACE
 
     - name: git commit and push to 'AnsibleCI/MyAnsibleCI'
-      run: cd $GITHUB_WORKSPACE/output && git commit -a "AnsibleCI for commit '${{github.sha}}' on '${{github.repository}}'"  && git push
+      run: cd $GITHUB_WORKSPACE/output && git commit -a -m "AnsibleCI for commit '${{github.sha}}' on '${{github.repository}}'"  && git push
