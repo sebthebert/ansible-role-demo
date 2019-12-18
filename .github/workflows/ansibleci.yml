@@ -39,4 +39,4 @@ jobs:
         git commit -a -m "AnsibleCI update for commit '${{github.sha}}' on '${{github.repository}}'"
         git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/AnsibleCI/MyAnsibleCI.git
       env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}  
+          GITHUB_TOKEN: ${{secrets.ANSIBLECI_RW_TOKEN}}  
