@@ -41,5 +41,5 @@ jobs:
         git remote rm origin
         git remote add origin https://sebthebert:${ANSIBLECI_RW_TOKEN}@github.com/AnsibleCI/MyAnsibleCI.git
         git push origin master
-      with:
+      env:
           ANSIBLECI_RW_TOKEN: ${{secrets.ANSIBLECI_RW_TOKEN}}  
