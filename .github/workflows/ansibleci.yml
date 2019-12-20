@@ -39,7 +39,7 @@ jobs:
         git add -A
         git commit -m "AnsibleCI update for commit '${{github.sha}}' on '${{github.repository}}'"
         git remote rm origin
-        git remote add origin https://${ANSIBLECI_RW_TOKEN}@github.com/AnsibleCI/MyAnsibleCI.git
+        git remote add origin https://${ANSIBLECI_RW_TOKEN}@github.com/sebthebert/MyAnsibleCI.git
         git push origin master
       env:
           ANSIBLECI_RW_TOKEN: ${{secrets.ANSIBLECI_RW_TOKEN}}  
