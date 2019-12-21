@@ -36,6 +36,8 @@ jobs:
         cd $GITHUB_WORKSPACE/output
         git config user.name "${GITHUB_ACTOR}"
         git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        git config --global --unset credential.helper
+        git config --system --unset credential.helper
         git add -A
         git commit -m "AnsibleCI update for commit '${{github.sha}}' on '${{github.repository}}'"
         git remote rm origin
