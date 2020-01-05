@@ -44,7 +44,8 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        directory: ${{GITHUB_WORKSPACE}}/output 
+        directory: "${{GITHUB_WORKSPACE}}/output"
+        force: yes  
         github_token: ${{secrets.PAT_ANSIBLECI_RW}}
-        repository: AnsibleCI/MyAnsibleCI 
+        repository: "AnsibleCI/MyAnsibleCI"
 #git push --force https://${{secrets.PAT_ANSIBLECI_RW}}@github.com/AnsibleCI/MyAnsibleCI.git master 
