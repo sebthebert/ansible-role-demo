@@ -18,9 +18,7 @@ jobs:
         path: 'output' 
 
     - name: Docker login
-      run: docker login docker.pkg.github.com -u $GITHUB_ACTOR -p $GITHUB_TOKEN
-      env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}    
+      run: docker login docker.pkg.github.com -u $GITHUB_ACTOR -p $GITHUB_TOKEN  
 
     - name: Pull Docker image
       run: docker pull "docker.pkg.github.com/ansibleci/docker-img-ansible/ansibleci:0.0.2"
@@ -34,6 +32,7 @@ jobs:
     - name: git commit and push to 'AnsibleCI/MyAnsibleCI'
       run: |
         cd $GITHUB_WORKSPACE/output
+        ls
         git config user.name "Sebastien Thebert"
         git config user.email "sebthebert@users.noreply.github.com"
         git config --global --unset credential.helper
