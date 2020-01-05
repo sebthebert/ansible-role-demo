@@ -18,14 +18,18 @@ jobs:
         path: 'output' 
 
     - name: Docker login
-      run: docker login docker.pkg.github.com -u $GITHUB_ACTOR -p $GITHUB_TOKEN  
+      run: docker login docker.pkg.github.com -u $GITHUB_ACTOR -p ${{ secrets.GITHUB_TOKEN }} 
 
     - name: Pull Docker image
-      run: docker pull "docker.pkg.github.com/ansibleci/docker-img-ansible/ansibleci:0.0.2"
+      run: docker pull $DOCKER_IMG
+      env:
+        DOCKER_IMG: docker.pkg.github.com/ansibleci/docker-img-ansible/ansibleci:0.0.2
 
     - name: Run image
-      run: docker run --rm -t --name ansible_lint -v $GITHUB_WORKSPACE/input:/input -v $GITHUB_WORKSPACE/output:/output docker.pkg.github.com/ansibleci/docker-img-ansible/ansibleci:0.0.2 ansible-playbook ansible-lint.yml
-      
+      run: docker run --rm -t --name ansible_lint -v $GITHUB_WORKSPACE/input:/input -v $GITHUB_WORKSPACE/output:/output $DOCKER_IMG ansible-playbook ansible-lint.yml
+      env:
+        DOCKER_IMG: docker.pkg.github.com/ansibleci/docker-img-ansible/ansibleci:0.0.2
+
     - name: print results
       run: ls -lR $GITHUB_WORKSPACE
 
