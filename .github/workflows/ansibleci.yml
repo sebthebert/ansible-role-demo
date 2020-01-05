@@ -44,7 +44,7 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        directory: "${{GITHUB_WORKSPACE}}/output"
+        directory: /home/runner/work/ansible-role-demo/ansible-role-demo/output
         force: yes  
         github_token: ${{secrets.PAT_ANSIBLECI_RW}}
         repository: "AnsibleCI/MyAnsibleCI"
