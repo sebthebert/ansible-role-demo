@@ -36,6 +36,8 @@ jobs:
     - name: git commit and push to 'AnsibleCI/MyAnsibleCI'
       run: |
         cd $GITHUB_WORKSPACE/output
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
         git add -A
         git commit -m "AnsibleCI update for commit '${{github.sha}}' on '${{github.repository}}'"
   
