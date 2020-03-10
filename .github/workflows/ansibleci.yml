@@ -14,7 +14,7 @@ jobs:
 
     - uses: actions/checkout@v2
       with:
-        repository: 'AnsibleCI/MyAnsibleCI'
+        repository: 'sebthebert/MyAnsibleCI'
         path: 'output' 
 
     - name: Docker login
@@ -33,14 +33,14 @@ jobs:
     - name: print results
       run: ls -lR $GITHUB_WORKSPACE
 
-    - name: git commit and push to 'AnsibleCI/MyAnsibleCI'
+    - name: git commit and push to 'sebthebert/MyAnsibleCI'
       run: |
         cd $GITHUB_WORKSPACE/output
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add -A
         git commit -m "AnsibleCI update for commit '${{github.sha}}' on '${{github.repository}}'"
-        git push --force https://${{secrets.PAT_ANSIBLECI_RW}}@github.com/AnsibleCI/MyAnsibleCI.git master
+        git push --force https://${{secrets.PAT_ANSIBLECI_RW}}@github.com/sebthebert/MyAnsibleCI.git master
   
 #    - name: Push changes
 #      uses: ad-m/github-push-action@master
