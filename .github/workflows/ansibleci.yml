@@ -42,10 +42,10 @@ jobs:
         git commit -m "AnsibleCI update for commit '${{github.sha}}' on '${{github.repository}}'"
   
     - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        directory: /home/runner/work/ansible-role-demo/ansible-role-demo/output
-        force: yes  
-        github_token: ${{secrets.PAT_ANSIBLECI_RW}}
-        repository: "AnsibleCI/MyAnsibleCI"
-#git push --force https://${{secrets.PAT_ANSIBLECI_RW}}@github.com/AnsibleCI/MyAnsibleCI.git master 
+#      uses: ad-m/github-push-action@master
+#      with:
+#        directory: /home/runner/work/ansible-role-demo/ansible-role-demo/output
+#        force: yes  
+#        github_token: ${{secrets.PAT_ANSIBLECI_RW}}
+#        repository: "AnsibleCI/MyAnsibleCI"
+      run: git push --force https://${{secrets.PAT_ANSIBLECI_RW}}@github.com/AnsibleCI/MyAnsibleCI.git master 
