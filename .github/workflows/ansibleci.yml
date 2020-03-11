@@ -40,7 +40,7 @@ jobs:
         git config --local user.name "GitHub Action"
         git add -A
         git commit -m "AnsibleCI update for commit '${{github.sha}}' on '${{github.repository}}'"
-        git push --force https://${{secrets.GITHUB_TOKEN}}@github.com/sebthebert/MyAnsibleCI.git master
+        git push --force https://${{secrets.PAT_REPOS_ADMIN}}@github.com/sebthebert/MyAnsibleCI.git master
   
 #    - name: Push changes
 #      uses: ad-m/github-push-action@master
