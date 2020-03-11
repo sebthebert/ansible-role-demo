@@ -36,8 +36,8 @@ jobs:
     - name: git commit and push to 'sebthebert/MyAnsibleCI'
       run: |
         cd $GITHUB_WORKSPACE/output
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email "sebthebert@github.com"
+        git config --local user.name "Sebastien Thebert"
         git add -A
         git commit -m "AnsibleCI update for commit '${{github.sha}}' on '${{github.repository}}'"
         git push --force https://${{secrets.PAT_REPOS_ADMIN}}@github.com/sebthebert/MyAnsibleCI.git master
